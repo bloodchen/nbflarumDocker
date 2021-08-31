@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  _NAME_:
+    image: mondedie/flarum:latest
+    container_name: _NAME_
+    ports:
+      - _PORT:8888 # CHANGE port number !!
+    environment:
+      # CHANGE for specific forum !!
+      - DEBUG=true
+      - FORUM_URL=_DOMAIN
+
+      # Database configuration
+      - DB_HOST=sharedb
+      - DB_NAME=_NAME_
+      - DB_USER=flarum
+      - DB_PASS=iloveyou
+      - DB_PREF=_NAME__
+      - DB_PORT=3306
+
+      # User admin flarum (environment variable for first installation)
+      # /!\ admin password must contain at least 8 characters /!\
+      - FLARUM_ADMIN_USER=admin
+      - FLARUM_ADMIN_PASS=iloveyou
+      - FLARUM_ADMIN_MAIL=admin@domain.tld
+      - FLARUM_TITLE=NB flarum
+    volumes:
+      - ./assets:/flarum/app/public/assets
+      - ./extensions:/flarum/app/extensions
+      - ./storage/logs:/flarum/app/storage/logs
+      - ./nginx:/etc/nginx/flarum
+      - ./packages:/flarum/app/packages
+    
+    networks:
+          - dbn
+  
+networks:
+      dbn:
+        driver: bridge 
+      

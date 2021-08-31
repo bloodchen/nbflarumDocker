@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  sharedb:
+      image: mariadb:10.5
+      container_name: sharedb
+      environment:
+        - MYSQL_ROOT_PASSWORD=iloveyou
+        - MYSQL_DATABASE=flarum
+        - MYSQL_USER=flarum
+        - MYSQL_PASSWORD=iloveyou
+      networks:
+            - dbn
+      volumes:
+        - ./mysql/db:/var/lib/mysql
+
+networks:
+      dbn:
+        driver: bridge
