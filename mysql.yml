@@ -9,6 +9,7 @@ services:
         - MYSQL_DATABASE=flarum
         - MYSQL_USER=flarum
         - MYSQL_PASSWORD=iloveyou
+      restart: always
       networks:
             - dbn
       volumes:

@@ -25,6 +25,7 @@ services:
       - FLARUM_ADMIN_PASS=iloveyou
       - FLARUM_ADMIN_MAIL=admin@domain.tld
       - FLARUM_TITLE=NB flarum
+    restart: always
     volumes:
       - ./assets:/flarum/app/public/assets
       - ./extensions:/flarum/app/extensions
