@@ -10,6 +10,7 @@
 
 ## How to install?
 
+0. make sure you have docker installed in your system. https://docs.docker.com/get-docker/
 1. run `rundb.sh` to start mysql database and wait for db to start up. Run `docker logs sharedb` to check status
 2. run `add.sh` to add a new forum. Required input:
 	- Name: The name of the forum, used in docker as container name and local folder name
